@@ -12,21 +12,21 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * administrators テーブルを操作するリポジトリ.
+ * administratorsテーブルを操作するリポジトリ.
  *
  * @author sota.akahane
  */
 @Repository
 public class AdministratorRepository {
     /**
-     * Administrator オブジェクトを生成する RowMapper
+     * Administratorオブジェクトを生成するRowMapper
      */
     private static final RowMapper<Administrator> ADMINISTRATOR_ROW_MAPPER
             = (rs, i) -> {
         Administrator administrator = new Administrator();
         administrator.setId(rs.getInt("id"));
         administrator.setName(rs.getString("name"));
-        administrator.setMailAddress(rs.getString("mailAddress"));
+        administrator.setMailAddress(rs.getString("mail_address"));
         administrator.setPassword(rs.getString("password"));
         return administrator;
     };
@@ -50,7 +50,7 @@ public class AdministratorRepository {
 
     /**
      * メールアドレスとパスワードから管理者情報を取得する.
-     * １件も存在しない場合は null を返す。
+     * １件も存在しない場合はnullを返す。
      *
      * @param mailAddress メールアドレス
      * @param password    パスワード
