@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 管理者関連機能の処理の制御を行うコントローラ
+ * 管理者関連機能の処理の制御を行うコントローラ.
  *
  * @author sota.akahane
  */
