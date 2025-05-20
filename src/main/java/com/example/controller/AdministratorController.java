@@ -35,7 +35,7 @@ public class AdministratorController {
      */
     @GetMapping("/toInsert")
     public String toInsert(InsertAdministratorForm form) {
-        return "/administrator/insert";
+        return "administrator/insert";
     }
 
     /**
@@ -61,9 +61,16 @@ public class AdministratorController {
      */
     @GetMapping("/")
     public String toLogin(LoginForm form) {
-        return "/administrator/login";
+        return "administrator/login";
     }
 
+    /**
+     * ログイン機能.
+     *
+     * @param form  フォーム
+     * @param model リクエストスコープ
+     * @return 入力値が正しければ従業員一覧画面にフォワード
+     */
     @PostMapping("/login")
     public String login(LoginForm form, Model model) {
         Administrator administrator
@@ -73,7 +80,7 @@ public class AdministratorController {
         if (administrator == null) {
             String errorMessage = "メールアドレスまたはパスワードが不正です。";
             model.addAttribute("errorMessage", errorMessage);
-            return "/administrator/login";
+            return "administrator/login";
         }
 
         session.setAttribute("administratorName", administrator.getName());
