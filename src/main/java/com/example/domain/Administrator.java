@@ -2,7 +2,7 @@ package com.example.domain;
 
 /**
  * 管理者情報を表すドメインクラス.
- * 
+ *
  * @author sota.akahane
  */
 public class Administrator {
