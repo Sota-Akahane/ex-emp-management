@@ -39,6 +39,14 @@ public class EmployeeController {
         return "employee/list";
     }
 
+    /**
+     * 従業員詳細ページを出力.
+     *
+     * @param id    クリックされたリンクの従業員ID
+     * @param model リクエストスコープ
+     * @param form  フォーム
+     * @return 従業員詳細ページにフォワード
+     */
     @GetMapping("/showDetail")
     public String showDetail(String id, Model model, UpdateEmployeeForm form) {
         int intId = Integer.parseInt(id);
@@ -46,5 +54,15 @@ public class EmployeeController {
         model.addAttribute("employee", employee);
 
         return "employee/detail";
+    }
+
+    @PostMapping("/update")
+    public String update(UpdateEmployeeForm form) {
+        Employee employee
+                = employeeService.showDetail(form.getIntId());
+        employee.setDependentsCount(form.getIntDependentsCount());
+        employeeService.update(employee);
+
+        return "redirect:/employee/showList";
     }
 }

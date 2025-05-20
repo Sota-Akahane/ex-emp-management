@@ -7,9 +7,17 @@ package com.example.form;
  */
 public class UpdateEmployeeForm {
     /** 従業員ID */
-    private String  id;
+    private String id;
     /** 扶養人数 */
     private String dependentsCount;
+
+    public Integer getIntId() {
+        return Integer.parseInt(id);
+    }
+
+    public Integer getIntDependentsCount() {
+        return Integer.parseInt(dependentsCount);
+    }
 
     public String getId() {
         return id;
