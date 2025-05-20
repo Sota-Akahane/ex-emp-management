@@ -1,7 +1,7 @@
 package com.example.form;
 
 /**
- * ログイン時に使用するフォーム
+ * ログイン時に使用するフォーム.
  *
  * @author sota.akahane
  */
