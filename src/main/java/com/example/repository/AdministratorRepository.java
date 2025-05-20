@@ -19,7 +19,7 @@ import java.util.List;
 @Repository
 public class AdministratorRepository {
     /**
-     * Administratorオブジェクトを生成するRowMapper
+     * Administratorオブジェクトを生成するRowMapper.
      */
     private static final RowMapper<Administrator> ADMINISTRATOR_ROW_MAPPER
             = (rs, i) -> {
@@ -58,8 +58,9 @@ public class AdministratorRepository {
      */
     public Administrator findByMailAddressAndPassword(String mailAddress,
                                                       String password) {
-        String sql = "SELECT * FROM administrators WHERE mail_address = " +
-                ":mailAddress AND password = :password;";
+        String sql = "SELECT id, name, mail_address, password " +
+                "FROM administrators WHERE mail_address = :mailAddress " +
+                "AND password = :password;";
         SqlParameterSource param
                 = new MapSqlParameterSource().addValue("mail_address",
                 mailAddress).addValue("password", password);

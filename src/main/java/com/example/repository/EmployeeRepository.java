@@ -19,7 +19,7 @@ import java.util.List;
 @Repository
 public class EmployeeRepository {
     /**
-     * Employeeオブジェクトを生成するRowMapper
+     * Employeeオブジェクトを生成するRowMapper.
      */
     private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER
             = (rs, i) -> {
@@ -64,7 +64,10 @@ public class EmployeeRepository {
      * @return 該当する従業員情報
      */
     public Employee findById(Integer id) {
-        String sql = "SELECT * FROM employees WHERE id = :id;";
+        String sql = "SELECT id, name, image, gender, hire_date, " +
+                "mail_address, zip_code, address, telephone, salary, " +
+                "characteristics, dependents_count " +
+                "FROM employees WHERE id = :id;";
         SqlParameterSource param
                 = new MapSqlParameterSource().addValue("id", id);
         Employee employee
