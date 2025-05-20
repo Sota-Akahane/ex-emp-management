@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
 import com.example.service.AdministratorService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,16 @@ public class AdministratorController {
         administratorService.insert(administrator);
 
         return "redirect:/";
+    }
+
+    /**
+     * ログイン画面に遷移する
+     *
+     * @param form ログイン画面で渡されたリクエストパラメータが格納されたフォーム
+     * @return ログイン画面にフォワード
+     */
+    @GetMapping("/")
+    public String toLogin(LoginForm form) {
+        return "/administrator/login";
     }
 }
