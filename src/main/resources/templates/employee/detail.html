@@ -176,7 +176,9 @@
                     <th nowrap>扶養人数</th>
                     <td>
                       <label class="error-messages">
-                        扶養人数を入力してください
+                        <span th:errors="*{dependentsCount}"
+                          >扶養人数を入力してください</span
+                        >
                       </label>
                       <label
                         class="control-label"
@@ -194,6 +196,7 @@
                         id="dependentsCount"
                         class="form-control"
                         th:value="${employee.dependentsCount}"
+                        th:field="*{dependentsCount}"
                       />
                     </td>
                   </tr>
