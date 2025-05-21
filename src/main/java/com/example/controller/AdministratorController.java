@@ -89,4 +89,16 @@ public class AdministratorController {
 
         return "redirect:/employee/showList";
     }
+
+    /**
+     * ログアウトする.
+     *
+     * @param form フォーム
+     * @return ログイン画面にフォワード
+     */
+    @GetMapping("/logout")
+    public String logout(LoginForm form) {
+        session.invalidate();
+        return "administrator/login";
+    }
 }

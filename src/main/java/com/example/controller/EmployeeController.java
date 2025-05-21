@@ -56,6 +56,12 @@ public class EmployeeController {
         return "employee/detail";
     }
 
+    /**
+     * 従業員情報を更新する.
+     *
+     * @param form フォーム
+     * @return 従業員リストを出力する画面にフォワード
+     */
     @PostMapping("/update")
     public String update(UpdateEmployeeForm form) {
         Employee employee
