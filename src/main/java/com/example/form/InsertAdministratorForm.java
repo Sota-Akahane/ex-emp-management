@@ -1,5 +1,8 @@
 package com.example.form;
 
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
+
 /**
  * 管理者登録時に使用するフォーム.
  *
@@ -7,10 +10,13 @@ package com.example.form;
  */
 public class InsertAdministratorForm {
     /** 名前 */
+    @NotBlank(message = "氏名を入力してください。")
     private String name;
     /** メールアドレス */
+    @NotBlank(message = "メールアドレスを入力してください。")
     private String mailAddress;
     /** パスワード */
+    @Length(min = 4, max = 50, message = "パスワードは4文字以上50文字以内で入力してください。")
     private String password;
 
     public String getMailAddress() {
